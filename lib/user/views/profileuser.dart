@@ -13,7 +13,7 @@ class ProfileUser extends StatelessWidget {
         child: TextButton(
           child: Text("Add Location"),
           onPressed: () {
-            ltc.determinePosition();
+            ltc.getCurrentLocation();
           },
         ),
       ),
