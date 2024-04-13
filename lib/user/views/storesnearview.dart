@@ -73,38 +73,32 @@ class _StoresNearViewState extends State<StoresNearView> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fetch Data Example',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Fetch Data Example'),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Fetch Data Example'),
-        ),
-        body: FutureBuilder<List>(
-          future: futureAlbum,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Container(
-                  child: ListView.builder(
-                      itemCount: snapshot.data?.length,
-                      itemBuilder: ((context, index) {
-                        final dist = snapshot.data?[index]['distance'];
+      body: FutureBuilder<List>(
+        future: futureAlbum,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Container(
+                child: ListView.builder(
+                    itemCount: snapshot.data?.length,
+                    itemBuilder: ((context, index) {
+                      final dist = snapshot.data?[index]['distance'];
 
-                        return ListTile(
-                          title: Text(snapshot.data?[index]['name']),
-                          subtitle: Text("${dist.toString()} km"),
-                        );
-                      })));
-            } else if (snapshot.hasError) {
-              return Text('${snapshot.error}');
-            }
+                      return ListTile(
+                        title: Text(snapshot.data?[index]['name']),
+                        subtitle: Text("${dist.toString()} km"),
+                      );
+                    })));
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
 
-            // By default, show a loading spinner.
-            return const CircularProgressIndicator();
-          },
-        ),
+          // By default, show a loading spinner.
+          return const CircularProgressIndicator();
+        },
       ),
     );
   }
