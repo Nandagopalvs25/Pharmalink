@@ -58,12 +58,12 @@ class AuthPage extends StatelessWidget {
                           decoration: InputDecoration(
                             filled: true,
                             prefixIcon: Icon(Icons.person_2),
-                            // fillColor: AdvColors.loginfield,
+                            fillColor: Color.fromARGB(255, 238, 255, 253),
                             // focusColor: AdvColors.loginfield,
                             // hoverColor: AdvColors.loginfield,
-                            enabledBorder: OutlineInputBorder(
+                            /*enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35),
-                            ),
+                            ),*/
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35),
                             ),
@@ -93,7 +93,7 @@ class AuthPage extends StatelessWidget {
                           decoration: InputDecoration(
                             filled: true,
                             prefixIcon: Icon(Icons.key),
-                            // fillColor: AdvColors.loginfield,
+                            fillColor: Color.fromARGB(255, 238, 255, 253),
                             // focusColor: AdvColors.loginfield,
                             // hoverColor: AdvColors.loginfield,
                             enabledBorder: OutlineInputBorder(
