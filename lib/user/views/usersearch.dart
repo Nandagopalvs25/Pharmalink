@@ -13,25 +13,32 @@ class UserSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _screenheight = MediaQuery.of(context).size.height;
+    final _screenwidth = MediaQuery.of(context).size.width;
     //UserSearchController usc = UserSearchController();
     return Scaffold(
-      appBar: AppBar(),
       body: Padding(
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "  Search",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 0, 212, 162),
-                fontSize: 35,
+            SizedBox(
+              height: _screenheight * 0.05,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Search",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 0, 212, 162),
+                  fontSize: 35,
+                ),
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: _screenheight * 0.02,
             ),
             TextField(
               // controller: usc.searchController,
@@ -51,7 +58,6 @@ class UserSearch extends StatelessWidget {
                   ),
                   hintText: "eg: Paracetamol"),
             ),
-            SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                   itemCount: 15,
@@ -115,7 +121,10 @@ class UserSearch extends StatelessWidget {
                             ));
                       },
                       child: ListTile(
-                        title: Text(meds[index]),
+                        title: Text(
+                          meds[index],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         subtitle: Text("MRP: ₹${mrp[index]}"),
                       ),
                     );
