@@ -60,13 +60,13 @@ class AuthPage extends StatelessWidget {
                             // focusColor: AdvColors.loginfield,
                             // hoverColor: AdvColors.loginfield,
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.2),
+                              borderRadius: BorderRadius.circular(35),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.2),
+                              borderRadius: BorderRadius.circular(35),
                             ),
                             disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.2),
+                              borderRadius: BorderRadius.circular(35),
                             ),
                           ),
                         ),
@@ -94,13 +94,13 @@ class AuthPage extends StatelessWidget {
                             // focusColor: AdvColors.loginfield,
                             // hoverColor: AdvColors.loginfield,
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.2),
+                              borderRadius: BorderRadius.circular(35),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.2),
+                              borderRadius: BorderRadius.circular(35),
                             ),
                             disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.2),
+                              borderRadius: BorderRadius.circular(35),
                             ),
                           ),
                         ),
