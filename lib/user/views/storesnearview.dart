@@ -44,7 +44,10 @@ class StoreNearView extends StatelessWidget {
             child: Text(
               "Available in: ",
               style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: _screenheight * 0.03),
+                fontWeight: FontWeight.bold,
+                fontSize: _screenheight * 0.03,
+                color: Color.fromARGB(255, 0, 212, 162),
+              ),
             ),
           ),
           Expanded(
