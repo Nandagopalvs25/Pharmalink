@@ -25,7 +25,7 @@ class StoreNearView extends StatelessWidget {
           'Authorization': 'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
         },
         body: jsonEncode(<String, int>{
-          'med_id': 3,
+          'med_id': med_id,
         }),
       );
     }
@@ -43,6 +43,16 @@ class StoreNearView extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.bold, fontSize: _screenheight * 0.03),
             ),
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 20,
+                itemBuilder: ((context, index) {
+                  return ListTile(
+                    title: Text("Store Name"),
+                    subtitle: Text("Distance: "),
+                  );
+                })),
           )
         ],
       ),
