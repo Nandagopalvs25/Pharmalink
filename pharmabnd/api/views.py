@@ -55,6 +55,12 @@ class AvailabilityView(APIView):
         body = json.loads(body_unicode)
         med_id = body['med_id']
         invs= Inventory.objects.filter(medicines__id=med_id)
+        if not invs:
+             s=PharmacySerializer(data={'name': 'Medicine Not Available', 'distance': 'Come back Later'})
+             s.is_valid(raise_exception=True)
+             response_data=s.initial_data
+             return Response(response_data, status=status.HTTP_200_OK)
+           
         for i in invs:
             print(i.user.username)
        
@@ -65,7 +71,6 @@ class AvailabilityView(APIView):
   
         dest={}
         for i in invs:
-            print(i.user.username)
             dest.update({i.user.username:{'coords':i.user.latitude+','+i.user.longitude}})
         URL= "https://api.distancematrix.ai/maps/api/distancematrix/json?origins="+origin+"&destinations="
         for x in dest.keys():
@@ -73,6 +78,7 @@ class AvailabilityView(APIView):
         URL=URL+"&key="+key
         r = requests.get(url = URL)
         data = r.json()
+        
         data['rows'][0]['elements'].pop(1)
         i=0
         for x in dest.keys():
