@@ -37,7 +37,14 @@ class UserSearch extends StatelessWidget {
                     filled: true,
                     fillColor: Color.fromARGB(255, 238, 255, 253),
                     suffixIcon: GestureDetector(
-                        onTap: () {}, child: Icon(Icons.search)),
+                        onTap: () {
+                          debugPrint("Search");
+                          usc.sendsearch(
+                            usc.searchController.text,
+                            usc.getToken().toString(),
+                          );
+                        },
+                        child: Icon(Icons.search)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(35),
                         borderSide: BorderSide(width: 0.1)),

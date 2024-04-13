@@ -1,12 +1,10 @@
 import 'dart:convert';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class LoginController extends GetxController {
-  final storage = const FlutterSecureStorage();
   Future<Token> sendCredentials(String username, String password) async {
     final response = await http.post(
       Uri.parse('https://pharmalink-47enl.ondigitalocean.app/auth/login/'),
@@ -18,16 +16,16 @@ class LoginController extends GetxController {
         'password': password,
       }),
     );
-    debugPrint("Here Goess");
 
-    debugPrint(response.body);
     if (response.statusCode == 201) {
       // If the server did return a 201 CREATED response,
       // then parse the JSON.
 
-      Token token =
-          Token.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
-      await storage.write(key: 'token', value: token.token);
+      Token token = Token.fromJson(
+          jsonDecode(response.body) as Map<String, dynamic>); //token here
+      debugPrint("token from auth");
+
+      debugPrint(token.token);
       return token;
     } else {
       // If the server did not return a 201 CREATED response,
