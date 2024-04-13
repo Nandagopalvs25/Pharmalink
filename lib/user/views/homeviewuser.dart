@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pharmalinkfend/user/views/usersearch.dart';
 
 class HomeUser extends StatelessWidget {
   const HomeUser({super.key});
@@ -29,21 +31,28 @@ class HomeUser extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Color.fromARGB(255, 238, 255, 253),
-                suffixIcon: Icon(Icons.search),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(35),
-                    borderSide: BorderSide(width: 0.1)),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(35),
-                    borderSide: BorderSide(width: 0.5)),
-                disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(35),
+            child: GestureDetector(
+              onTap: () {
+                Get.to(() => const UserSearch());
+              },
+              child: AbsorbPointer(
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color.fromARGB(255, 238, 255, 253),
+                    suffixIcon: Icon(Icons.search),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(35),
+                        borderSide: BorderSide(width: 0.1)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(35),
+                        borderSide: BorderSide(width: 0.5)),
+                    disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(35),
+                    ),
+                    hintText: "Search you required medicine",
+                  ),
                 ),
-                hintText: "Search you required medicine",
               ),
             ),
           ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:pharmalinkfend/pharmacy/views/pharmhome.dart';
+import 'package:pharmalinkfend/user/controllers/usersearchcontroller.dart';
 import 'package:pharmalinkfend/user/views/userhome.dart';
 
 class UserSearch extends StatelessWidget {
@@ -10,6 +11,7 @@ class UserSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserSearchController usc = UserSearchController();
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -30,10 +32,12 @@ class UserSearch extends StatelessWidget {
                 height: 20.0,
               ),
               TextField(
+                controller: usc.searchController,
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Color.fromARGB(255, 238, 255, 253),
-                    suffixIcon: Icon(Icons.search),
+                    suffixIcon: GestureDetector(
+                        onTap: () {}, child: Icon(Icons.search)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(35),
                         borderSide: BorderSide(width: 0.1)),
