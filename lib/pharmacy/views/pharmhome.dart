@@ -8,7 +8,7 @@ class PharmHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pharmcontroller = PharmController();
+    PharmController pharmcontroller = Get.put(PharmController());
     final _screenheight = MediaQuery.of(context).size.height;
     final _screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
