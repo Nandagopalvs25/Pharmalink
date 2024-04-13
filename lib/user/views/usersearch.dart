@@ -17,15 +17,17 @@ class UserSearch extends StatelessWidget {
     final _screenwidth = MediaQuery.of(context).size.width;
     //UserSearchController usc = UserSearchController();
     return Scaffold(
-      appBar: AppBar(),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: _screenheight * 0.05,
+            ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 20),
               child: Text(
                 "Search",
                 style: TextStyle(
@@ -36,7 +38,7 @@ class UserSearch extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: _screenheight * 0.05,
+              height: _screenheight * 0.02,
             ),
             TextField(
               // controller: usc.searchController,
@@ -56,12 +58,22 @@ class UserSearch extends StatelessWidget {
                   ),
                   hintText: "eg: Paracetamol"),
             ),
-            SizedBox(height: 10),
-            ListView.builder(itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {},
-              );
-            })
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 15,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {},
+                      child: ListTile(
+                        title: Text(
+                          "Paracetamol",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text("MRP: ₹30.91"),
+                      ),
+                    );
+                  }),
+            )
           ],
         ),
       ),

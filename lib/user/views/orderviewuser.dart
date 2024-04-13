@@ -18,12 +18,12 @@ class OrderUser extends StatelessWidget {
             height: _screenheight * 0.015,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(left: 30),
             child: Text(
               "Your Orders",
               style: TextStyle(
                 color: Color.fromARGB(255, 18, 205, 168),
-                fontSize: 45,
+                fontSize: 35,
                 fontWeight: FontWeight.bold,
               ),
             ),
