@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "g@xcm*15k^(ok=y4+k0_b^2ru2ov006lzsqapn23s-fk2*pv^9")
 
-ALLOWED_HOSTS = ['https://pharmalink-47enl.ondigitalocean.app','localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['pharmalink-47enl.ondigitalocean.app','localhost', '127.0.0.1']
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
