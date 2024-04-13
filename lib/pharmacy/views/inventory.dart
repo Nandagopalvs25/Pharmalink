@@ -19,9 +19,13 @@ class Inventory extends StatelessWidget {
               controller: c.searchcontroller,
               decoration: InputDecoration(
                 hintText: "Search",
+                focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                  color: Color.fromARGB(255, 18, 205, 168),
+                )),
                 prefixIcon: Icon(Icons.search),
                 suffixIcon: GestureDetector(
-                    onTap: () {}, child: Icon(Icons.fork_right)),
+                    onTap: () {}, child: Icon(Icons.filter_alt_rounded)),
               ),
             ),
           ),

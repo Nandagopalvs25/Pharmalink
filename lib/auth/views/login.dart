@@ -44,7 +44,7 @@ class AuthPage extends StatelessWidget {
                         "Username",
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          fontSize: _screenheight * 0.03124829,
+                          fontSize: _screenheight * 0.025,
                           fontWeight: FontWeight.w700,
                           //fontFamily:
                         ),
@@ -80,7 +80,7 @@ class AuthPage extends StatelessWidget {
                       Text(
                         "Password",
                         style: TextStyle(
-                          fontSize: _screenheight * 0.03124829,
+                          fontSize: _screenheight * 0.025,
                           fontWeight: FontWeight.w700,
                         ),
                         textAlign: TextAlign.left,
@@ -127,7 +127,7 @@ class AuthPage extends StatelessWidget {
                             child: Text(
                               "Log in",
                               style: TextStyle(
-                                fontSize: _screenheight * 0.03124829,
+                                fontSize: _screenheight * 0.025,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
                               ),
