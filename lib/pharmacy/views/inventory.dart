@@ -20,7 +20,8 @@ class Inventory extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: "Search",
                 prefixIcon: Icon(Icons.search),
-                suffixIcon: Icon(Icons.fork_right),
+                suffixIcon: GestureDetector(
+                    onTap: () {}, child: Icon(Icons.fork_right)),
               ),
             ),
           ),
