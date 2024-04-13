@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 
 class StoreNearView extends StatelessWidget {
   final int id;
@@ -12,6 +16,19 @@ class StoreNearView extends StatelessWidget {
   Widget build(BuildContext context) {
     final _screenheight = MediaQuery.of(context).size.height;
     final _screenwidth = MediaQuery.of(context).size.width;
+    Future<http.Response> checkmedalbum(int med_id) {
+      debugPrint("med_id: ");
+      return http.post(
+        Uri.parse('https://pharmalink-47enl.ondigitalocean.app/checkmed/'),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
+        },
+        body: jsonEncode(<String, int>{
+          'med_id': med_id,
+        }),
+      );
+    }
 
     return Scaffold(
       body: Column(
@@ -26,6 +43,16 @@ class StoreNearView extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.bold, fontSize: _screenheight * 0.03),
             ),
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 20,
+                itemBuilder: ((context, index) {
+                  return ListTile(
+                    title: Text("Store Name"),
+                    subtitle: Text("Distance: "),
+                  );
+                })),
           )
         ],
       ),
