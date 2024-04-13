@@ -34,4 +34,4 @@ class Medicine(models.Model):
 
 class Inventory(models.Model):
      user = models.OneToOneField(CustomUser,on_delete=models.CASCADE,primary_key=True)
-     medicines=models.ManyToManyField(Medicine)
+     medicines=models.ManyToManyField(Medicine,blank=True,null=True)

@@ -20,4 +20,5 @@ class MedicineDetailSerializer(serializers.ModelSerializer):
 class InventorySerializer(serializers.ModelSerializer):
     class Meta:
         model=Inventory
+        depth=2
         fields='__all__'

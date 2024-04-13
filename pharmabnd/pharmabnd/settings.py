@@ -96,7 +96,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    ]
+    ], 'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
 WSGI_APPLICATION = 'pharmabnd.wsgi.application'
 
@@ -152,7 +154,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+#site is should be 1 for local
 SITE_ID=4
 
 STATIC_URL = "/static/"
