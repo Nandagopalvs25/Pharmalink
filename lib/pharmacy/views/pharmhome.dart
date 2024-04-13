@@ -14,9 +14,9 @@ class PharmHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: _screenheight * 0.1,
-        title: Text(
-          "Inventory",
-        ),
+        title: Obx(() => Text(
+              pharmcontroller.titles[pharmcontroller.selectedpage.value],
+            )),
       ),
       body: Obx(() => Container(
           height: _screenheight * 0.8,
