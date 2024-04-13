@@ -47,194 +47,196 @@ class MedicineView extends StatelessWidget {
             // Data is loaded, display it
             MedicineModel medicine = snapshot.data!;
             return Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: _screenheight * 0.025,
-                    ),
-                    child: Text(
-                      snapshot.data?.name ?? '',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 6, 202, 166),
-                          fontSize: _screenheight * 0.03),
-                    ),
-                  ),
-                  /*Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 5),
-                    child: Text(
-                      "Paracetamol (650mg)",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),*/
-                  Padding(
-                    padding: EdgeInsets.only(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
                         left: _screenheight * 0.025,
-                        top: _screenheight * 0.007),
-                    child: Text(
-                      "MRP : ₹${snapshot.data?.mrp} ",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025),
-                    child: Text(
-                      "Description",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: _screenheight * 0.02,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025,
-                        right: _screenheight * 0.025),
-                    child: Text(
-                      "${snapshot.data?.description}",
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025),
-                    child: Text(
-                      "How to Use?",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025,
-                        right: _screenheight * 0.025),
-                    child: Text(
-                      "${snapshot.data?.howtouse}",
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025),
-                    child: Text(
-                      "Side Effects",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025,
-                        right: _screenheight * 0.025),
-                    child: Text(
-                      "${snapshot.data?.sidef}",
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025),
-                    child: Text(
-                      "Therapeutic Class",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025,
-                        right: _screenheight * 0.025),
-                    child: Text(
-                      "${snapshot.data?.therapyclass}",
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025),
-                    child: Text(
-                      "Manufacturer",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025,
-                        right: _screenheight * 0.025),
-                    child: Text(
-                      "${snapshot.data?.manf}",
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: _screenheight * 0.025,
-                        top: _screenheight * 0.025),
-                    child: Container(
-                      width: _screenwidth * 0.2,
-                      height: _screenheight * 0.04,
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 6, 202, 166),
-                          borderRadius: BorderRadius.circular(8),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color.fromARGB(148, 6, 6, 6),
-                                spreadRadius: 0.2,
-                                blurRadius: 2)
-                          ]),
-                      child: Center(
-                        child: Text(
-                          "Buy Now",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
+                      ),
+                      child: Text(
+                        snapshot.data?.name ?? '',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 6, 202, 166),
+                            fontSize: _screenheight * 0.03),
                       ),
                     ),
-                  )
-                ],
+                    /*Padding(
+                      padding: const EdgeInsets.only(left: 30, top: 5),
+                      child: Text(
+                        "Paracetamol (650mg)",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),*/
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.007),
+                      child: Text(
+                        "MRP : ₹${snapshot.data?.mrp} ",
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025),
+                      child: Text(
+                        "Description",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: _screenheight * 0.02,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025,
+                          right: _screenheight * 0.025),
+                      child: Text(
+                        "${snapshot.data?.description}",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025),
+                      child: Text(
+                        "How to Use?",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025,
+                          right: _screenheight * 0.025),
+                      child: Text(
+                        "${snapshot.data?.howtouse}",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025),
+                      child: Text(
+                        "Side Effects",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025,
+                          right: _screenheight * 0.025),
+                      child: Text(
+                        "${snapshot.data?.sidef}",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025),
+                      child: Text(
+                        "Therapeutic Class",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025,
+                          right: _screenheight * 0.025),
+                      child: Text(
+                        "${snapshot.data?.therapyclass}",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025),
+                      child: Text(
+                        "Manufacturer",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025,
+                          right: _screenheight * 0.025),
+                      child: Text(
+                        "${snapshot.data?.manf}",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025),
+                      child: Container(
+                        width: _screenwidth * 0.2,
+                        height: _screenheight * 0.04,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 6, 202, 166),
+                            borderRadius: BorderRadius.circular(8),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromARGB(148, 6, 6, 6),
+                                  spreadRadius: 0.2,
+                                  blurRadius: 2)
+                            ]),
+                        child: Center(
+                          child: Text(
+                            "Buy Now",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           }
