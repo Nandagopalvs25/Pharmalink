@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:pharmalinkfend/pharmacy/views/pharmhome.dart';
 import 'package:pharmalinkfend/user/controllers/usersearchcontroller.dart';
+import 'package:pharmalinkfend/user/models/searchmodel.dart';
 import 'package:pharmalinkfend/user/views/userhome.dart';
 
 class UserSearch extends StatelessWidget {
@@ -37,7 +38,11 @@ class UserSearch extends StatelessWidget {
                     filled: true,
                     fillColor: Color.fromARGB(255, 238, 255, 253),
                     suffixIcon: GestureDetector(
-                        onTap: () {}, child: Icon(Icons.search)),
+                        onTap: () {
+                          Future<List<SearchModel>> postsFuture =
+                              usc.sendsearch(usc.searchController.text);
+                        },
+                        child: Icon(Icons.search)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(35),
                         borderSide: BorderSide(width: 0.1)),
@@ -48,7 +53,9 @@ class UserSearch extends StatelessWidget {
                       borderRadius: BorderRadius.circular(35),
                     ),
                     hintText: "eg: Paracetamol"),
-              )
+              ),
+              SizedBox(height: 10),
+              //FutureBuilder(future: future, builder: builder)
             ]),
       ),
     );
