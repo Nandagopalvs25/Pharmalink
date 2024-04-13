@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:http/http.dart' as http;
+import 'package:pharmalinkfend/user/models/storeviewmodel.dart';
 
 class StoreNearView extends StatelessWidget {
   final int id;
@@ -15,59 +16,70 @@ class StoreNearView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("$id");
     final _screenheight = MediaQuery.of(context).size.height;
     final _screenwidth = MediaQuery.of(context).size.width;
-    Future<http.Response> checkmedalbum(int med_id) {
-      debugPrint("med_id: ");
-      return http.post(
+    Future<StoreViewModel> createstore(int med_id) async {
+      final response = await http.post(
         Uri.parse('https://pharmalink-47enl.ondigitalocean.app/checkmed/'),
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
+        headers: <String, String>{
+          'Content-Type': 'application/json',
           'Authorization': 'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
         },
         body: jsonEncode(<String, int>{
-          'med_id': med_id,
+          'med_id': id,
         }),
       );
+
+      if (response.statusCode == 200) {
+        // If the server did return a 201 CREATED response,
+        // then parse the JSON.
+        debugPrint("Store Created ");
+        return StoreViewModel.fromJson(
+            jsonDecode(response.body) as Map<String, dynamic>);
+      } else {
+        // If the server did not return a 201 CREATED response,
+        // then throw an exception.
+        debugPrint("Store not Created ");
+        throw Exception('Failed to create album.');
+      }
     }
 
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: _screenheight * 0.1,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: _screenheight * 0.025),
-            child: Text(
-              "Available in: ",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: _screenheight * 0.03,
-                color: Color.fromARGB(255, 0, 212, 162),
-              ),
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-                padding: EdgeInsets.only(left: _screenheight * 0.02),
-                itemCount: 20,
-                itemBuilder: ((context, index) {
-                  return ListTile(
-                    title: Text(
-                      "Store Name",
-                      style: TextStyle(
+      body: FutureBuilder(
+          future: createstore(id),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else {
+              return Column(children: [
+                SizedBox(
+                  height: _screenheight * 0.1,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: _screenheight * 0.025),
+                  child: Text(
+                    "Available in: ",
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: Text("Distance: "),
-                  );
-                })),
-          )
-        ],
-      ),
+                        fontSize: _screenheight * 0.03),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: 20,
+                      itemBuilder: ((context, index) {
+                        return ListTile(
+                          title: Text("Store Name"),
+                          subtitle: Text("Distance: "),
+                        );
+                      })),
+                )
+              ]);
+            }
+          }),
     );
   }
 }
