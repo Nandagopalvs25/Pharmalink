@@ -25,6 +25,7 @@ class UserHome extends StatelessWidget {
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
           selectedItemColor: Color.fromARGB(255, 18, 205, 168),
+          unselectedItemColor: Color.fromARGB(177, 75, 75, 75),
           currentIndex: us.selectedpage.value,
           onTap: (index) {
             us.setindex(index);

@@ -26,6 +26,7 @@ class PharmHome extends StatelessWidget {
           child: pharmcontroller.bodies[pharmcontroller.selectedpage.value])),
       bottomNavigationBar: Obx(() => BottomNavigationBar(
             selectedItemColor: Color.fromARGB(255, 18, 205, 168),
+            unselectedItemColor: Color.fromARGB(177, 75, 75, 75),
             currentIndex: pharmcontroller.selectedpage.value,
             onTap: (index) {
               pharmcontroller.setindex(index);
