@@ -1,15 +1,10 @@
-
 from django.contrib import admin
 from django.urls import path,include
-from .views import indexview
-
-
-
-
+from .views import indexView
 
 urlpatterns = [
-     path('/auth/', include('dj_rest_auth.urls')),
-     path('index/',indexview,name="index" ),
-
+  
+    path('', indexView,name='index'),
+    path('auth/', include('dj_rest_auth.urls')),
 
 ]

@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
-
+from django.http import HttpResponse
 # Create your views here.
 
 
 
-
-def indexview(request):
-    return HttpResponse("Hello")
+def indexView(request):
+    return HttpResponse("HEllo world")
