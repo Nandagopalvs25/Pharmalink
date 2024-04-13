@@ -52,6 +52,9 @@ class UserSearch extends StatelessWidget {
                   hintText: "eg: Paracetamol"),
             ),
             SizedBox(height: 10),
+            ListView.builder(itemBuilder: (context,index){
+              return GestureDetector(onTap: (){},)
+            })
           ],
         ),
       ),
