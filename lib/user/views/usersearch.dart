@@ -56,11 +56,65 @@ class UserSearch extends StatelessWidget {
               child: ListView.builder(
                   itemCount: 15,
                   itemBuilder: (context, index) {
+                    final List<String> meds = [
+                      'Augmentin 625 Duo Tablet',
+                      'Asthalin Syrup',
+                      'Betadine 10% Solution',
+                      'Dolo 650 Tablet',
+                      'Ecosprin 150 Tablet',
+                      'Amlong Tablet',
+                      'Augmentin DDS Suspension',
+                      'Betadine Powder',
+                      'Joint-D Tablet',
+                      'Lopamide Tablet',
+                      'Moxikind-CV 625 Tablet',
+                      'Genteal Eye Drop',
+                      'Nodosis Tablet',
+                      'Nitrosun 10 Tablet',
+                      'Flutibact Ointment',
+                    ];
+                    final List<int> ids = [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      9,
+                      10,
+                      11,
+                      12,
+                      13,
+                      14,
+                      15,
+                    ];
+                    final List<String> mrp = [
+                      '1',
+                      '2',
+                      '3',
+                      '4',
+                      '5',
+                      '6',
+                      '7',
+                      '8',
+                      '9',
+                      '10',
+                      '11',
+                      '12',
+                      '13',
+                      '14',
+                      '15'
+                    ];
+
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => MedicineView());
+                      },
                       child: ListTile(
-                        title: Text("Paracetamol"),
-                        subtitle: Text("MRP: ₹30.91"),
+                        title: Text(meds[index]),
+                        subtitle: Text("MRP: ₹${mrp[index]}"),
                       ),
                     );
                   }),
