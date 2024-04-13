@@ -229,22 +229,6 @@ class MedicineView extends StatelessWidget {
                         child: Center(
                           child: TextButton(
                             onPressed: () {
-                              Future<http.Response> checkmedalbum(
-                                  String med_id) {
-                                return http.post(
-                                  Uri.parse(
-                                      'https://pharmalink-47enl.ondigitalocean.app/checkmed/'),
-                                  headers: {
-                                    'content-type': 'application/json',
-                                    'Authorization':
-                                        'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
-                                  },
-                                  body: jsonEncode(<String, String>{
-                                    'med_id': med_id,
-                                  }),
-                                );
-                              }
-
                               Get.to(() => StoreNearView(id: id));
                             },
                             child: Text(
