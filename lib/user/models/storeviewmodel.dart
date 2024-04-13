@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class StoreViewModel {
   String? name;
   String? distance;
@@ -7,8 +9,17 @@ class StoreViewModel {
     this.distance,
   });
 
-  StoreViewModel.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    distance = json['distance'];
+  factory StoreViewModel.fromJson(Map<String, dynamic> json) {
+    return switch (json) {
+      {
+        'name': String name,
+        'distance': String distance,
+      } =>
+        StoreViewModel(
+          name: name,
+          distance: distance,
+        ),
+      _ => throw const FormatException('Failed to load album.'),
+    };
   }
 }

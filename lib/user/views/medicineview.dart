@@ -125,7 +125,7 @@ class MedicineView extends StatelessWidget {
                                 );
                               }
 
-                              Get.to(() => StoreNearView(id: id));
+                              Get.to(() => StoresNearView(id: id));
                             },
                             child: Center(
                               child: Padding(
