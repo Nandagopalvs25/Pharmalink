@@ -80,7 +80,10 @@ class _StoresNearViewState extends State<StoresNearView> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Fetch Data Example'),
+          title: const Text(
+            'Available in',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
         body: FutureBuilder<List>(
           future: futureAlbum,
