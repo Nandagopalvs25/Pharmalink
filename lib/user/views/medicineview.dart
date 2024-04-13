@@ -224,15 +224,15 @@ class MedicineView extends StatelessWidget {
                                   spreadRadius: 0.2,
                                   blurRadius: 2)
                             ]),
-                        child: Center(
-                          child: Text(
-                            "Buy Now",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20),
-                          ),
-                        ),
+                        // child: Center(
+                        //   child: Text(
+                        //     "Buy Now",
+                        //     style: TextStyle(
+                        //         color: Colors.white,
+                        //         fontWeight: FontWeight.bold,
+                        //         fontSize: 20),
+                        //   ),
+                        // ),
                       ),
                     )
                   ],
