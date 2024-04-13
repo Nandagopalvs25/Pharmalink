@@ -30,19 +30,19 @@ class UserHome extends StatelessWidget {
           },
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.home),
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.store),
+              icon: Icon(Icons.shopping_cart),
               label: "Orders",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
+              icon: Icon(Icons.person),
               label: "Profile",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
+              icon: Icon(Icons.group),
               label: "Community",
             ),
           ],

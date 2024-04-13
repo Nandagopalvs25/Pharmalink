@@ -22,6 +22,7 @@ class HomeUser extends StatelessWidget {
               style: TextStyle(
                 fontSize: 35.0,
                 fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 18, 205, 168),
               ),
               textAlign: TextAlign.left,
             ),
