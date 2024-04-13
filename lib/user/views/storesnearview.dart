@@ -1,85 +1,85 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/cupertino.dart';
 import 'package:pharmalinkfend/user/models/storeviewmodel.dart';
+import 'package:http/http.dart' as http;
 
-class StoreNearView extends StatelessWidget {
-  final int id;
+class StoreNearView extends StatefulWidget {
+  final int? id;
   const StoreNearView({
     super.key,
-    required this.id,
+    this.id,
   });
 
   @override
-  Widget build(BuildContext context) {
-    debugPrint("$id");
-    final _screenheight = MediaQuery.of(context).size.height;
-    final _screenwidth = MediaQuery.of(context).size.width;
-    Future<StoreViewModel> createstore(int med_id) async {
-      final response = await http.post(
-        Uri.parse('https://pharmalink-47enl.ondigitalocean.app/checkmed/'),
-        headers: <String, String>{
-          'Content-Type': 'application/json',
-          'Authorization': 'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
-        },
-        body: jsonEncode(<String, int>{
-          'med_id': id,
-        }),
-      );
+  State<StoreNearView> createState() => _StoreNearViewState();
+}
 
-      if (response.statusCode == 200) {
-        // If the server did return a 201 CREATED response,
-        // then parse the JSON.
-        debugPrint("Store Created ");
-        return StoreViewModel.fromJson(
-            jsonDecode(response.body) as Map<String, dynamic>);
-      } else {
-        // If the server did not return a 201 CREATED response,
-        // then throw an exception.
-        debugPrint("Store not Created ");
-        throw Exception('Failed to create album.');
-      }
-    }
+class _StoreNearViewState extends State<StoreNearView> {
+  static Future<List<StoreViewModel>> getstores(int med_id) async {
+    final response = await http.post(
+      Uri.parse('https://jsonplaceholder.typicode.com/albums'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
+      },
+      body: jsonEncode(<String, int>{
+        'med_id': med_id,
+      }),
+    );
+    final List body = json.decode(response.body);
+    return body.map((e) => StoreViewModel.fromJson(e)).toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Future<List<StoreViewModel>> stores = getstores(widget.id!);
 
     return Scaffold(
-      body: FutureBuilder(
-          future: createstore(id),
+      body: Center(
+        // FutureBuilder
+        child: FutureBuilder<List<StoreViewModel>>(
+          future: stores,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasError) {
-              return Text('Error: ${snapshot.error}');
+              // until data is fetched, show loader
+              return const CircularProgressIndicator();
+            } else if (snapshot.hasData) {
+              // once data is fetched, display it on screen (call buildPosts())
+              final posts = snapshot.data!;
+              return buildPosts(posts);
             } else {
-              return Column(children: [
-                SizedBox(
-                  height: _screenheight * 0.1,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: _screenheight * 0.025),
-                  child: Text(
-                    "Available in: ",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: _screenheight * 0.03),
-                  ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                      itemCount: 20,
-                      itemBuilder: ((context, index) {
-                        return ListTile(
-                          title: Text("Store Name"),
-                          subtitle: Text("Distance: "),
-                        );
-                      })),
-                )
-              ]);
+              // if no data, show simple Text
+              return const Text("No data available");
             }
-          }),
+          },
+        ),
+      ),
+    );
+  }
+
+  // function to display fetched data on screen
+  Widget buildPosts(List<StoreViewModel> posts) {
+    // ListView Builder to show data in a list
+    return ListView.builder(
+      itemCount: posts.length,
+      itemBuilder: (context, index) {
+        final post = posts[index];
+        return Container(
+          color: Colors.grey.shade300,
+          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+          height: 100,
+          width: double.maxFinite,
+          child: Row(
+            children: [
+              Expanded(flex: 1, child: Text(post.name!)),
+              SizedBox(width: 10),
+              Expanded(flex: 3, child: Text(post.distance!)),
+            ],
+          ),
+        );
+      },
     );
   }
 }
