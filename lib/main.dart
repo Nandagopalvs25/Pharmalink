@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pharmalinkfend/auth/views/login.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pharmalinkfend/pharmacy/views/pharmhome.dart';
+import 'package:pharmalinkfend/user/views/userhome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      getPages: [GetPage(name: "/", page: (() => const AuthPage()))],
+      getPages: [
+        GetPage(name: "/", page: (() => const AuthPage())),
+        GetPage(name: "/pharm", page: (() => const PharmHome())),
+        GetPage(name: "/user", page: (() => const UserHome()))
+      ],
       title: 'PharmaLink',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

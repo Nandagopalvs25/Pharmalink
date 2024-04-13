@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:pharmalinkfend/pharmacy/views/pharmhome.dart';
+import 'package:pharmalinkfend/user/views/userhome.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -114,7 +115,7 @@ class AuthPage extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.to(() => const PharmHome());
+                          Get.to(() => const UserHome());
                         },
                         child: Container(
                           height: _screenheight * 0.07031547,
