@@ -17,7 +17,7 @@ class UserSearch extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,9 +52,19 @@ class UserSearch extends StatelessWidget {
                   hintText: "eg: Paracetamol"),
             ),
             SizedBox(height: 10),
-            ListView.builder(itemBuilder: (context,index){
-              return GestureDetector(onTap: (){},)
-            })
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 15,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {},
+                      child: ListTile(
+                        title: Text("Paracetamol"),
+                        subtitle: Text("MRP: ₹30.91"),
+                      ),
+                    );
+                  }),
+            )
           ],
         ),
       ),
