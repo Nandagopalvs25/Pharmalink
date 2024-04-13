@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:pharmalinkfend/pharmacy/controllers/addtoinvcontroller.dart';
 import 'package:pharmalinkfend/user/models/medicinemodel.dart';
 import 'package:pharmalinkfend/user/views/storesnearview.dart';
 
@@ -36,8 +35,6 @@ class MedicineView extends StatelessWidget {
         throw Exception('Failed to load album');
       }
     }
-
-    PopUpController pnc = PopUpController();
 
     return Scaffold(
       appBar: AppBar(),
@@ -134,40 +131,12 @@ class MedicineView extends StatelessWidget {
                               child: Padding(
                                 padding: EdgeInsets.only(
                                     left: _screenheight * 0.015),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Get.dialog(AlertDialog(
-                                      title: Text("Add"),
-                                      content: Column(children: [
-                                        Text("Enter Quantity"),
-                                        Obx(() =>
-                                            Text(pnc.selectednum.toString())),
-                                        IconButton(
-                                          icon: Icon(Icons.add),
-                                          onPressed: () {
-                                            pnc.inc(pnc.selectednum);
-                                          },
-                                        ),
-                                        IconButton(
-                                          icon: Icon(Icons.add),
-                                          onPressed: () {
-                                            pnc.dec(pnc.selectednum);
-                                          },
-                                        ),
-                                        TextButton(
-                                          child: Text("Ok"),
-                                          onPressed: () {},
-                                        )
-                                      ]),
-                                    ));
-                                  },
-                                  child: Text(
-                                    "Buy Now",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
+                                child: Text(
+                                  "Buy Now",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
                                 ),
                               ),
                             ),

@@ -156,6 +156,18 @@ class AuthPage extends StatelessWidget {
                             ),
                           ),
                         ),
+                      ),
+                      TextButton(
+                        child: Text("User"),
+                        onPressed: () {
+                          Get.to(() => const UserHome());
+                        },
+                      ),
+                      TextButton(
+                        child: Text("Pharmacy"),
+                        onPressed: () {
+                          Get.to(() => const PharmHome());
+                        },
                       )
                     ],
                   ),
