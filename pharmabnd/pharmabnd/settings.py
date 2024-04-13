@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "g@xcm*15k^(ok=y4+k0_b^2ru2ov006lzsqapn23s-fk2*pv^9")
 
-ALLOWED_HOSTS = os.getenv("https://pharmalink-47enl.ondigitalocean.app", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = ['https://pharmalink-47enl.ondigitalocean.app','localhost', '127.0.0.1']
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
@@ -37,7 +37,7 @@ DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
