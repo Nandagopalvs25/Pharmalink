@@ -12,4 +12,6 @@ class PharmController extends GetxController {
     selectedpage.value = index;
     update();
   }
+
+  TextEditingController searchcontroller = TextEditingController();
 }
