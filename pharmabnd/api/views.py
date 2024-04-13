@@ -46,3 +46,14 @@ class InventoryView(APIView):
         inv = Inventory.objects.get(user=request.user)
         serializer = InventorySerializer(inv)
         return Response(serializer.data)
+
+class AvailabilityView(APIView):
+     @method_decorator(csrf_exempt)
+     def post(self,request):
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        med_id = body['med_id']
+        invs= Inventory.objects.filter(medicines__id=med_id)
+        print(invs)
+        return HttpResponse("Hello")
+

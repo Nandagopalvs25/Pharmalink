@@ -13,6 +13,8 @@ class CustomUser(AbstractUser):
     ("USR", "User"),
     ("PHR", "Pharmacy"))
     usertype=models.CharField(max_length=10,choices=CHOICES)
+    latitude= models.CharField(max_length=255,null=True,blank=True)
+    longitude= models.CharField(max_length=255,null=True,blank=True)
 
 
 
@@ -35,3 +37,13 @@ class Medicine(models.Model):
 class Inventory(models.Model):
      user = models.OneToOneField(CustomUser,on_delete=models.CASCADE,primary_key=True)
      medicines=models.ManyToManyField(Medicine,blank=True,null=True)
+
+     def __str__(self):
+        return self.user.username
+
+class Orders(models.Model):
+     user = models.OneToOneField(CustomUser,on_delete=models.CASCADE,primary_key=True)
+     medicines=models.ManyToManyField(Medicine,blank=True,null=True)
+     number_of_items = models.PositiveIntegerField(default=0)
+     total = models.DecimalField(default=0.00, max_digits=5,decimal_places=2)
+    
