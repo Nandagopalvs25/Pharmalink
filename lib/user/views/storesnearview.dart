@@ -75,26 +75,13 @@ class _StoresNearViewState extends State<StoresNearView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fetch Data Example'),
-      ),
-<<<<<<< HEAD
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Available in',
-            style: TextStyle(fontWeight: FontWeight.bold),
+        title: const Text(
+          'Available in',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
           ),
         ),
-        body: FutureBuilder<List>(
-          future: futureAlbum,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Container(
-                  child: ListView.builder(
-                      itemCount: snapshot.data?.length,
-                      itemBuilder: ((context, index) {
-                        final dist = snapshot.data?[index]['distance'];
-=======
+      ),
       body: FutureBuilder<List>(
         future: futureAlbum,
         builder: (context, snapshot) {
@@ -104,11 +91,16 @@ class _StoresNearViewState extends State<StoresNearView> {
                     itemCount: snapshot.data?.length,
                     itemBuilder: ((context, index) {
                       final dist = snapshot.data?[index]['distance'];
->>>>>>> 057111571e1a88b52da95f0d30cefaf9eb2dceff
 
-                      return ListTile(
-                        title: Text(snapshot.data?[index]['name']),
-                        subtitle: Text("${dist.toString()} km"),
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 29.0),
+                        child: ListTile(
+                          title: Text(
+                            snapshot.data?[index]['name'],
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text("${dist.toString()} km"),
+                        ),
                       );
                     })));
           } else if (snapshot.hasError) {
@@ -116,7 +108,7 @@ class _StoresNearViewState extends State<StoresNearView> {
           }
 
           // By default, show a loading spinner.
-          return const CircularProgressIndicator();
+          return Center(child: const CircularProgressIndicator());
         },
       ),
     );
