@@ -22,7 +22,11 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: "/", page: (() => const AuthPage())),
         GetPage(name: "/pharm", page: (() => const PharmHome())),
-        GetPage(name: "/user", page: (() => const UserHome()))
+        GetPage(name: "/user", page: (() => const UserHome())),
+        GetPage(
+            name: "/usersearch",
+            page: (() => const UserSearch()),
+            transition: Transition.rightToLeftWithFade),
       ],
       title: 'PharmaLink',
       theme: ThemeData(
