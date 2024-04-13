@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:pharmalinkfend/user/models/medicinemodel.dart';
+import 'package:pharmalinkfend/user/views/storesnearview.dart';
 
 class MedicineView extends StatelessWidget {
   final int id;
@@ -86,6 +88,60 @@ class MedicineView extends StatelessWidget {
                             fontSize: 24,
                             fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: _screenheight * 0.025,
+                          top: _screenheight * 0.025),
+                      child: Container(
+                        width: _screenwidth * 0.2,
+                        height: _screenheight * 0.04,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 6, 202, 166),
+                            borderRadius: BorderRadius.circular(8),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromARGB(148, 6, 6, 6),
+                                  spreadRadius: 0.2,
+                                  blurRadius: 2)
+                            ]),
+                        child: Center(
+                          child: TextButton(
+                            onPressed: () {
+                              Future<http.Response> checkmedalbum(
+                                  String med_id) {
+                                return http.post(
+                                  Uri.parse(
+                                      'https://pharmalink-47enl.ondigitalocean.app/checkmed/'),
+                                  headers: {
+                                    'content-type': 'application/json',
+                                    'Authorization':
+                                        'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
+                                  },
+                                  body: jsonEncode(<String, String>{
+                                    'med_id': med_id,
+                                  }),
+                                );
+                              }
+
+                              Get.to(() => StoreNearView(id: id));
+                            },
+                            child: Center(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    left: _screenheight * 0.015),
+                                child: Text(
+                                  "Buy Now",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     Padding(
@@ -208,33 +264,6 @@ class MedicineView extends StatelessWidget {
                         textAlign: TextAlign.left,
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: _screenheight * 0.025,
-                          top: _screenheight * 0.025),
-                      child: Container(
-                        width: _screenwidth * 0.2,
-                        height: _screenheight * 0.04,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 6, 202, 166),
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromARGB(148, 6, 6, 6),
-                                  spreadRadius: 0.2,
-                                  blurRadius: 2)
-                            ]),
-                        // child: Center(
-                        //   child: Text(
-                        //     "Buy Now",
-                        //     style: TextStyle(
-                        //         color: Colors.white,
-                        //         fontWeight: FontWeight.bold,
-                        //         fontSize: 20),
-                        //   ),
-                        // ),
-                      ),
-                    )
                   ],
                 ),
               ),
