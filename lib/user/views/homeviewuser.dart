@@ -58,21 +58,95 @@ class HomeUser extends StatelessWidget {
             ),
           ),
           SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Container(
-                    width: _screenwidth * 0.5,
-                    height: _screenheight * 0.2,
-                    padding: EdgeInsets.all(35),
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(width: 0.5, color: Colors.black)),
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: _screenwidth * 0.3,
+                  height: _screenheight * 0.05,
+                  child: Center(
+                    child: Text(
+                      "Cosmetic",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: _screenheight * 0.016),
+                    ),
                   ),
-                ],
-              ))
+                  margin:
+                      EdgeInsets.only(top: 10, left: 20, bottom: 20, right: 10),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 17, 198, 171),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  //border: Border.all(width: 0.5, color: Colors.black)),
+                ),
+                Container(
+                  width: _screenwidth * 0.3,
+                  height: _screenheight * 0.05,
+                  child: Center(
+                    child: Text(
+                      "Painkillers",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: _screenheight * 0.016),
+                    ),
+                  ),
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 17, 198, 171),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  //border: Border.all(width: 0.5, color: Colors.black)),
+                ),
+                Container(
+                  width: _screenwidth * 0.3,
+                  height: _screenheight * 0.05,
+                  child: Center(
+                    child: Text(
+                      "Vitamins",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: _screenheight * 0.016),
+                    ),
+                  ),
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 17, 198, 171),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  //border: Border.all(width: 0.5, color: Colors.black)),
+                ),
+              ],
+            ),
+          ),
+          Center(
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: _screenheight * 0.015),
+              height: _screenheight * 0.09,
+              child: Center(
+                child: Text(
+                  "25% off on Cosmetics.\nUse code : GDSC24",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
+                      fontSize: _screenheight * 0.02),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              width: _screenheight * 0.4,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 238, 255, 253),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                    color: const Color.fromARGB(69, 0, 0, 0), width: 1),
+              ),
+            ),
+          )
         ],
       ),
     );
