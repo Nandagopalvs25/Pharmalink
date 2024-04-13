@@ -56,14 +56,14 @@ class MedicineView extends StatelessWidget {
                       left: 30,
                     ),
                     child: Text(
-                      "Dolo 650 Tablet",
+                      snapshot.data?.name ?? '',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 6, 202, 166),
                           fontSize: 45),
                     ),
                   ),
-                  Padding(
+                  /*Padding(
                     padding: const EdgeInsets.only(left: 30, top: 5),
                     child: Text(
                       "Paracetamol (650mg)",
@@ -73,11 +73,11 @@ class MedicineView extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     ),
-                  ),
+                  ),*/
                   Padding(
                     padding: const EdgeInsets.only(left: 30, top: 5),
                     child: Text(
-                      "MRP : ₹30.91 ",
+                      "MRP : ₹${snapshot.data?.mrp} ",
                       style: TextStyle(
                           color: Colors.grey,
                           fontSize: 24,
@@ -100,7 +100,7 @@ class MedicineView extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 30, top: 10, right: 30),
                     child: Text(
-                      "Dolo 650 Tablet is an analgesic (pain reliever) and anti-pyretic (fever reducer). It works by blocking the release of certain chemical messengers that cause pain and fever",
+                      "${snapshot.data?.description}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
                       textAlign: TextAlign.left,
                     ),
@@ -120,7 +120,7 @@ class MedicineView extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 30, top: 10, right: 30),
                     child: Text(
-                      "Take this medicine in the dose and duration as advised by your doctor. Swallow it as a whole. Do not chew, crush or break it. Dolo 650 Tablet is to be taken with food",
+                      "${snapshot.data?.howtouse}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
                       textAlign: TextAlign.left,
                     ),
@@ -140,7 +140,7 @@ class MedicineView extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 30, top: 10, right: 30),
                     child: Text(
-                      "Stomach pain\nNausea\nVomiting,",
+                      "${snapshot.data?.sidef}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
                       textAlign: TextAlign.left,
                     ),
@@ -160,7 +160,7 @@ class MedicineView extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 30, top: 10, right: 30),
                     child: Text(
-                      "Pain Analgesics",
+                      "${snapshot.data?.therapyclass}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
                       textAlign: TextAlign.left,
                     ),
@@ -180,7 +180,7 @@ class MedicineView extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 30, top: 10, right: 30),
                     child: Text(
-                      "Micro Labs Ltd",
+                      "${snapshot.data?.manf}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
                       textAlign: TextAlign.left,
                     ),
