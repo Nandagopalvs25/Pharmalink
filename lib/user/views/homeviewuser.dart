@@ -61,26 +61,6 @@ class HomeUser extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(width: 0.5, color: Colors.black)),
                   ),
-                  Container(
-                    width: _screenwidth * 0.5,
-                    height: _screenheight * 0.2,
-                    padding: EdgeInsets.all(35),
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(width: 0.5, color: Colors.black)),
-                  ),
-                  Container(
-                    width: _screenwidth * 0.5,
-                    height: _screenheight * 0.2,
-                    padding: EdgeInsets.all(35),
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(width: 0.5, color: Colors.black)),
-                  ),
                 ],
               ))
         ],
