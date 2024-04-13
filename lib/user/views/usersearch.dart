@@ -55,7 +55,26 @@ class UserSearch extends StatelessWidget {
                     hintText: "eg: Paracetamol"),
               ),
               SizedBox(height: 10),
-              //FutureBuilder(future: future, builder: builder)
+              FutureBuilder(
+                  future: usc.sendsearch(usc.searchController.text),
+                  builder: ((context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasData) {
+                      return ListView.builder(
+                          itemCount: snapshot.data?.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text(snapshot.data?[index]?.name ?? ''),
+                              subtitle: Text(
+                                  snapshot.data?[index]?.price.toString() ??
+                                      ''),
+                            );
+                          });
+                    } else {
+                      return Center(child: Text("No data found"));
+                    }
+                  }))
             ]),
       ),
     );
