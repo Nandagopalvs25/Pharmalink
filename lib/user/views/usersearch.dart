@@ -13,6 +13,8 @@ class UserSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _screenheight = MediaQuery.of(context).size.height;
+    final _screenwidth = MediaQuery.of(context).size.width;
     //UserSearchController usc = UserSearchController();
     return Scaffold(
       appBar: AppBar(),
@@ -22,16 +24,19 @@ class UserSearch extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "  Search",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 0, 212, 162),
-                fontSize: 35,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Search",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 0, 212, 162),
+                  fontSize: 35,
+                ),
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: _screenheight * 0.05,
             ),
             TextField(
               // controller: usc.searchController,
@@ -52,8 +57,10 @@ class UserSearch extends StatelessWidget {
                   hintText: "eg: Paracetamol"),
             ),
             SizedBox(height: 10),
-            ListView.builder(itemBuilder: (context,index){
-              return GestureDetector(onTap: (){},)
+            ListView.builder(itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {},
+              );
             })
           ],
         ),
