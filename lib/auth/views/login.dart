@@ -59,14 +59,15 @@ class AuthPage extends StatelessWidget {
                             filled: true,
                             prefixIcon: Icon(Icons.person_2),
                             fillColor: Color.fromARGB(255, 238, 255, 253),
+
                             // focusColor: AdvColors.loginfield,
                             // hoverColor: AdvColors.loginfield,
-                            /*enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(35),
-                            ),*/
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(35),
+                                borderSide: BorderSide(width: 0.1)),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(35),
-                            ),
+                                borderRadius: BorderRadius.circular(35),
+                                borderSide: BorderSide(width: 0.5)),
                             disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35),
                             ),
@@ -97,11 +98,11 @@ class AuthPage extends StatelessWidget {
                             // focusColor: AdvColors.loginfield,
                             // hoverColor: AdvColors.loginfield,
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(35),
-                            ),
+                                borderRadius: BorderRadius.circular(35),
+                                borderSide: BorderSide(width: 0.1)),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(35),
-                            ),
+                                borderRadius: BorderRadius.circular(35),
+                                borderSide: BorderSide(width: 0.5)),
                             disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35),
                             ),
