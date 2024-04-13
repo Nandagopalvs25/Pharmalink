@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: const StoreNearView(),
+      home: const AuthPage(),
     );
   }
 }
