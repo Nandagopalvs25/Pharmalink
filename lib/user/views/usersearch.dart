@@ -97,21 +97,21 @@ class UserSearch extends StatelessWidget {
                       15,
                     ];
                     final List<String> mrp = [
-                      '1',
-                      '2',
-                      '3',
-                      '4',
-                      '5',
-                      '6',
-                      '7',
-                      '8',
-                      '9',
-                      '10',
-                      '11',
-                      '12',
-                      '13',
-                      '14',
-                      '15'
+                      '₹201.71',
+                      '₹16.8',
+                      '₹104.16',
+                      '₹30.91',
+                      '₹8.79',
+                      '₹43.84',
+                      '₹157.3',
+                      '₹131.5',
+                      '₹125',
+                      '₹21.2',
+                      '₹154.55',
+                      '₹200',
+                      '₹54',
+                      '₹59.5',
+                      '₹214.75'
                     ];
 
                     return GestureDetector(
@@ -125,7 +125,7 @@ class UserSearch extends StatelessWidget {
                           meds[index],
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        subtitle: Text("MRP: ₹${mrp[index]}"),
+                        subtitle: Text("MRP: ${mrp[index]}"),
                       ),
                     );
                   }),
