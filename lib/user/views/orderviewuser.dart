@@ -45,7 +45,7 @@ class OrderUser extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Image.asset(Icon(Icons.delete))
+                  //Image.asset(Icon(Icons.delete))
                 ],
               ),
               decoration: BoxDecoration(

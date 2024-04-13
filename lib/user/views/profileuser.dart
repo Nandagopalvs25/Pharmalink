@@ -7,13 +7,13 @@ class ProfileUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LocationController ltc = LocationController();
+    //LocationController ltc = LocationController();
     return Container(
       child: Center(
         child: TextButton(
           child: Text("Add Location"),
           onPressed: () {
-            ltc.getCurrentLocation();
+            // ltc.getCurrentLocation();
           },
         ),
       ),
