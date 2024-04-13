@@ -45,6 +45,7 @@ class AuthPage extends StatelessWidget {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: _screenheight * 0.03124829,
+                          fontWeight: FontWeight.w700,
                           //fontFamily:
                         ),
                       ),
@@ -79,6 +80,7 @@ class AuthPage extends StatelessWidget {
                         "Password",
                         style: TextStyle(
                           fontSize: _screenheight * 0.03124829,
+                          fontWeight: FontWeight.w700,
                         ),
                         textAlign: TextAlign.left,
                       ),
@@ -115,10 +117,10 @@ class AuthPage extends StatelessWidget {
                         },
                         child: Container(
                           height: _screenheight * 0.07031547,
-                          //width: _screenwidth * 0.02,
+                          width: _screenwidth * 0.05,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
-                            color: Colors.blue,
+                            color: Color.fromARGB(255, 18, 205, 168),
                           ),
                           child: Center(
                             child: Text(
@@ -126,6 +128,7 @@ class AuthPage extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: _screenheight * 0.03124829,
                                 color: Colors.white,
+                                fontWeight: FontWeight.w700,
                               ),
                               textAlign: TextAlign.center,
                             ),
