@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pharmalinkfend/pharmacy/controllers/addtoinvcontroller.dart';
 import 'package:pharmalinkfend/pharmacy/models/stockviewmodel.dart';
 import 'package:http/http.dart' as http;
 
@@ -16,13 +18,25 @@ class StockDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final _screenheight = MediaQuery.of(context).size.height;
     final _screenwidth = MediaQuery.of(context).size.width;
+    Future<http.Response> sendtoinventory(int medicineid) {
+      return http.post(
+        Uri.parse('https://pharmalink-47enl.ondigitalocean.app/inventory/'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'token df3116e9c3e61bed28cfda39ef561bde0cdfda48',
+        },
+        body: jsonEncode(<String, int>{
+          'medicineid': medicineid,
+        }),
+      );
+    }
 
     Future<StockViewModel> fetchstock() async {
       final response = await http.get(
           Uri.parse('https://pharmalink-47enl.ondigitalocean.app/medicine/$id'),
           headers: {
             'content-type': 'application/json',
-            'Authorization': 'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
+            'Authorization': 'token df3116e9c3e61bed28cfda39ef561bde0cdfda48',
           });
 
       if (response.statusCode == 200) {
@@ -118,7 +132,7 @@ class StockDetails extends StatelessWidget {
                                   headers: {
                                     'content-type': 'application/json',
                                     'Authorization':
-                                        'token 27a95e156665bd1eb8d7efccdd61072f8b4b318f',
+                                        'token df3116e9c3e61bed28cfda39ef561bde0cdfda48',
                                   },
                                   body: jsonEncode(<String, String>{
                                     'med_id': med_id,
@@ -132,12 +146,17 @@ class StockDetails extends StatelessWidget {
                               child: Padding(
                                 padding: EdgeInsets.only(
                                     left: _screenheight * 0.002),
-                                child: Text(
-                                  "Add",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    sendtoinventory(id);
+                                  },
+                                  child: Text(
+                                    "Add",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
                                 ),
                               ),
                             ),
