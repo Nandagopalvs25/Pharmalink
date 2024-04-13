@@ -135,7 +135,7 @@ class AuthPage extends StatelessWidget {
                         onTap: () {
                           lgn.sendCredentials(lgn.usernameController.text,
                               lgn.passwordController.text);
-                          Get.to(() => const UserHome());
+                          Get.to(() => const PharmHome());
                         },
                         child: Container(
                           height: _screenheight * 0.05031547,
