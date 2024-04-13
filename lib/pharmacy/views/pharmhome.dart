@@ -21,26 +21,37 @@ class PharmHome extends StatelessWidget {
       body: Obx(() => Container(
           height: _screenheight * 0.8,
           child: pharmcontroller.bodies[pharmcontroller.selectedpage.value])),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: pharmcontroller.selectedpage.value,
-        onTap: (index) {
-          pharmcontroller.setindex(index);
-          debugPrint("Index: $index");
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.store),
-            label: "Inventory",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "Orders",
-          ),
-        ],
+      bottomNavigationBar: Obx(
+        () => BottomNavigationBar(
+          currentIndex: pharmcontroller.selectedpage.value,
+          onTap: (index) {
+            pharmcontroller.setindex(index);
+            debugPrint("Index: ");
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Profile",
+              backgroundColor: pharmcontroller.selectedpage.value == 0
+                  ? Colors.green
+                  : Colors.red,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.store),
+              label: "Inventory",
+              backgroundColor: pharmcontroller.selectedpage.value == 1
+                  ? Colors.green
+                  : Colors.red,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: "Orders",
+              backgroundColor: pharmcontroller.selectedpage.value == 2
+                  ? Colors.green
+                  : Colors.red,
+            ),
+          ],
+        ),
       ),
     );
   }
