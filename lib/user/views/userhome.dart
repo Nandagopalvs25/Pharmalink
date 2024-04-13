@@ -14,10 +14,7 @@ class UserHome extends StatelessWidget {
     final _screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: _screenheight * 0.1,
-        title: Obx(() => Text(
-              us.titles[us.selectedpage.value],
-            )),
+        automaticallyImplyLeading: false,
       ),
       body: Obx(() => Container(
           height: _screenheight * 0.8,

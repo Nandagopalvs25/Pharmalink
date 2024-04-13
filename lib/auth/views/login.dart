@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:pharmalinkfend/pharmacy/views/pharmhome.dart';
 import 'package:pharmalinkfend/user/views/userhome.dart';
+import 'package:pharmalinkfend/auth/controllers/logincontroller.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -12,7 +13,7 @@ class AuthPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _screenheight = MediaQuery.of(context).size.height;
     final _screenwidth = MediaQuery.of(context).size.width;
-
+    LoginController lgn = LoginController();
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -56,6 +57,7 @@ class AuthPage extends StatelessWidget {
                       Container(
                         height: _screenheight * 0.07031547,
                         child: TextField(
+                          controller: lgn.usernameController,
                           decoration: InputDecoration(
                             filled: true,
                             prefixIcon: Icon(Icons.person_2),
@@ -92,6 +94,7 @@ class AuthPage extends StatelessWidget {
                       Container(
                         height: _screenheight * 0.07031547,
                         child: TextField(
+                          controller: lgn.passwordController,
                           decoration: InputDecoration(
                             filled: true,
                             prefixIcon: Icon(Icons.key),
@@ -115,6 +118,8 @@ class AuthPage extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
+                          lgn.sendCredentials(lgn.usernameController.text,
+                              lgn.passwordController.text);
                           Get.to(() => const UserHome());
                         },
                         child: Container(

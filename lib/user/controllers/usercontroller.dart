@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class UserController extends GetxController {
   final List<String> titles = [
-    "Home",
+    "Shop",
     "Orders",
     "Profile",
     "Community",
