@@ -4,6 +4,7 @@ import 'package:pharmalinkfend/auth/views/login.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pharmalinkfend/pharmacy/views/pharmhome.dart';
 import 'package:pharmalinkfend/user/views/medicineview.dart';
+import 'package:pharmalinkfend/user/views/storesnearview.dart';
 import 'package:pharmalinkfend/user/views/userhome.dart';
 import 'package:pharmalinkfend/user/views/usersearch.dart';
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: const AuthPage(),
+      home: const StoreNearView(),
     );
   }
 }
