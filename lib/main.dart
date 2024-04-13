@@ -4,6 +4,7 @@ import 'package:pharmalinkfend/auth/views/login.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pharmalinkfend/pharmacy/views/pharmhome.dart';
 import 'package:pharmalinkfend/user/views/userhome.dart';
+import 'package:pharmalinkfend/user/views/usersearch.dart';
 
 void main() {
   runApp(const MyApp());
