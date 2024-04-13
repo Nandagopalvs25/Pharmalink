@@ -22,3 +22,14 @@ class InventorySerializer(serializers.ModelSerializer):
         model=Inventory
         depth=2
         fields='__all__'
+
+
+class AvailablePharm:
+     def __init__(self, name,distance):
+        self.name=name
+        self.distance=distance
+
+
+class PharmacySerializer(serializers.Serializer):
+    name = serializers.CharField()
+    distance = serializers.CharField(max_length=30)     
