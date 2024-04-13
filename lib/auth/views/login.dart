@@ -116,7 +116,7 @@ class AuthPage extends StatelessWidget {
                           height: _screenheight * 0.07031547,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.32),
-                            // color: AdvColors.loginbutton,
+                            color: Colors.blue,
                           ),
                           child: Center(
                             child: Text(
@@ -129,7 +129,7 @@ class AuthPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
