@@ -15,13 +15,10 @@ class CustomUser(AbstractUser):
     usertype=models.CharField(max_length=10,choices=CHOICES)
 
 
-class Inventory(models.Model):
-     user = models.OneToOneField(CustomUser,on_delete=models.CASCADE,primary_key=True)
 
   
 
 class Medicine(models.Model):
-    inventory = models.ForeignKey(Inventory,related_name="inventory", on_delete=models.CASCADE,null=True)
     name=models.CharField(max_length=255)
     mrp=models.CharField(max_length=10)
     sp=models.CharField(max_length=10,null=True,blank=True)
@@ -32,3 +29,9 @@ class Medicine(models.Model):
     description=models.TextField()
     therapyclass=models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
+class Inventory(models.Model):
+     user = models.OneToOneField(CustomUser,on_delete=models.CASCADE,primary_key=True)
+     medicines=models.ManyToManyField(Medicine)

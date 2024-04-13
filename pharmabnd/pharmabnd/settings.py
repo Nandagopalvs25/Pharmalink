@@ -27,7 +27,9 @@ ALLOWED_HOSTS = ['pharmalink-47enl.ondigitalocean.app','localhost', '127.0.0.1']
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+
+#Set this to false on local
+DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"    
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
