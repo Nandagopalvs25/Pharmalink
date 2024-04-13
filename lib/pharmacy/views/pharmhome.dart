@@ -16,6 +16,9 @@ class PharmHome extends StatelessWidget {
         toolbarHeight: _screenheight * 0.1,
         title: Obx(() => Text(
               pharmcontroller.titles[pharmcontroller.selectedpage.value],
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 6, 202, 166)),
             )),
       ),
       body: Obx(() => Container(
