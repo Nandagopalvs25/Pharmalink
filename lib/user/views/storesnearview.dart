@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:http/http.dart' as http;
 
 class StoreNearView extends StatelessWidget {
@@ -32,6 +33,8 @@ class StoreNearView extends StatelessWidget {
 
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: _screenheight * 0.1,
@@ -46,10 +49,16 @@ class StoreNearView extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
+                padding: EdgeInsets.only(left: _screenheight * 0.02),
                 itemCount: 20,
                 itemBuilder: ((context, index) {
                   return ListTile(
-                    title: Text("Store Name"),
+                    title: Text(
+                      "Store Name",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     subtitle: Text("Distance: "),
                   );
                 })),
