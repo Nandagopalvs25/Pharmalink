@@ -52,15 +52,15 @@ class MedicineView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
-                      left: 30,
+                    padding: EdgeInsets.only(
+                      left: _screenheight * 0.025,
                     ),
                     child: Text(
                       snapshot.data?.name ?? '',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 6, 202, 166),
-                          fontSize: 45),
+                          fontSize: _screenheight * 0.03),
                     ),
                   ),
                   /*Padding(
@@ -75,7 +75,9 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),*/
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 5),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.007),
                     child: Text(
                       "MRP : ₹${snapshot.data?.mrp} ",
                       style: TextStyle(
@@ -86,19 +88,23 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 25),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025),
                     child: Text(
                       "Description",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 20,
+                          fontSize: _screenheight * 0.02,
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 30, top: 10, right: 30),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025,
+                        right: _screenheight * 0.025),
                     child: Text(
                       "${snapshot.data?.description}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
@@ -106,7 +112,9 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 25),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025),
                     child: Text(
                       "How to Use?",
                       style: TextStyle(
@@ -117,8 +125,10 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 30, top: 10, right: 30),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025,
+                        right: _screenheight * 0.025),
                     child: Text(
                       "${snapshot.data?.howtouse}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
@@ -126,7 +136,9 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 25),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025),
                     child: Text(
                       "Side Effects",
                       style: TextStyle(
@@ -137,8 +149,10 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 30, top: 10, right: 30),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025,
+                        right: _screenheight * 0.025),
                     child: Text(
                       "${snapshot.data?.sidef}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
@@ -146,7 +160,9 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 25),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025),
                     child: Text(
                       "Therapeutic Class",
                       style: TextStyle(
@@ -157,8 +173,10 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 30, top: 10, right: 30),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025,
+                        right: _screenheight * 0.025),
                     child: Text(
                       "${snapshot.data?.therapyclass}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
@@ -166,7 +184,9 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 25),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025),
                     child: Text(
                       "Manufacturer",
                       style: TextStyle(
@@ -177,8 +197,10 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 30, top: 10, right: 30),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025,
+                        right: _screenheight * 0.025),
                     child: Text(
                       "${snapshot.data?.manf}",
                       style: TextStyle(color: Colors.black, fontSize: 18),
@@ -186,7 +208,9 @@ class MedicineView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 40),
+                    padding: EdgeInsets.only(
+                        left: _screenheight * 0.025,
+                        top: _screenheight * 0.025),
                     child: Container(
                       width: _screenwidth * 0.2,
                       height: _screenheight * 0.04,
