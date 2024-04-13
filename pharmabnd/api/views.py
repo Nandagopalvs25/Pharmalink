@@ -2,8 +2,8 @@ import json
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .serializers import MedicineSerializer,MedicineDetailSerializer,InventorySerializer,PharmacySerializer
-from .models import Medicine,Inventory
+from .serializers import MedicineSerializer,MedicineDetailSerializer,InventorySerializer,PharmacySerializer,OrderSerializer
+from .models import Medicine,Inventory,Orders
 from rest_framework import generics
 from rest_framework import filters
 from django.views.decorators.csrf import csrf_exempt
@@ -30,14 +30,15 @@ class MedicineRetrieveView(generics.RetrieveAPIView):
     queryset=Medicine.objects.all()
     serializer_class=MedicineDetailSerializer
 
-
+class OrdersList(generics.ListCreateAPIView):
+    queryset = Orders.objects.all()
+    serializer_class = OrderSerializer
  
 class InventoryView(APIView):
     @method_decorator(csrf_exempt)
     def post(self,request):
         body_unicode = request.body.decode('utf-8')
         body = json.loads(body_unicode)
-        inv_id = body['id']
         medicine_id=body["medicineid"]
         inv = Inventory.objects.get(user=request.user)
         inv.medicines.add( Medicine.objects.get(id=medicine_id))
@@ -47,6 +48,9 @@ class InventoryView(APIView):
         inv = Inventory.objects.get(user=request.user)
         serializer = InventorySerializer(inv)
         return Response(serializer.data)
+    
+
+
 
 class AvailabilityView(APIView):
      @method_decorator(csrf_exempt)
@@ -95,4 +99,3 @@ class AvailabilityView(APIView):
         s.is_valid(raise_exception=True)
         response_data=s.initial_data
         return Response(response_data, status=status.HTTP_200_OK)
-
