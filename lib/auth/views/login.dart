@@ -31,6 +31,19 @@ class AuthPage extends StatelessWidget {
                 SliverList(
                   delegate: SliverChildListDelegate(
                     [
+                      SizedBox(
+                        height: _screenheight * 0.05,
+                      ),
+                      Center(
+                        child: Text(
+                          "PharmaLink",
+                          style: TextStyle(
+                            fontSize: 45,
+                            fontWeight: FontWeight.w900,
+                            color: Color.fromARGB(255, 18, 205, 168),
+                          ),
+                        ),
+                      ),
                       // Container(
                       //   width: _screenwidth * 0.852787,
                       //   height: _screenheight * 0.29218656,
@@ -40,20 +53,20 @@ class AuthPage extends StatelessWidget {
                       //   ),
                       // ),
                       SizedBox(
-                        height: _screenheight * 0.03549828,
+                        height: _screenheight * 0.05549828,
                       ),
-                      Text(
-                        "Username",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: _screenheight * 0.025,
-                          fontWeight: FontWeight.w700,
-                          //fontFamily:
-                        ),
-                      ),
-                      SizedBox(
-                        height: _screenheight * 0.0181033,
-                      ),
+                      // Text(
+                      //   "Username",
+                      //   textAlign: TextAlign.left,
+                      //   style: TextStyle(
+                      //     fontSize: _screenheight * 0.025,
+                      //     fontWeight: FontWeight.w700,
+                      //     //fontFamily:
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: _screenheight * 0.0181033,
+                      // ),
                       Container(
                         height: _screenheight * 0.07031547,
                         child: TextField(
@@ -74,23 +87,24 @@ class AuthPage extends StatelessWidget {
                             disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35),
                             ),
+                            hintText: "Username",
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: _screenheight * 0.0218765,
-                      ),
-                      Text(
-                        "Password",
-                        style: TextStyle(
-                          fontSize: _screenheight * 0.025,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                      SizedBox(
-                        height: _screenheight * 0.022802811,
-                      ),
+                      // SizedBox(
+                      //   height: _screenheight * 0.0218765,
+                      // ),
+                      // Text(
+                      //   "Password",
+                      //   style: TextStyle(
+                      //     fontSize: _screenheight * 0.025,
+                      //     fontWeight: FontWeight.w700,
+                      //   ),
+                      //   textAlign: TextAlign.left,
+                      // ),
+                      // SizedBox(
+                      //   height: _screenheight * 0.022802811,
+                      // ),
                       Container(
                         height: _screenheight * 0.07031547,
                         child: TextField(
@@ -110,6 +124,7 @@ class AuthPage extends StatelessWidget {
                             disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35),
                             ),
+                            hintText: "Password",
                           ),
                         ),
                       ),
@@ -123,8 +138,8 @@ class AuthPage extends StatelessWidget {
                           Get.to(() => const UserHome());
                         },
                         child: Container(
-                          height: _screenheight * 0.07031547,
-                          width: _screenwidth * 0.05,
+                          height: _screenheight * 0.05031547,
+                          // width: _screenwidth * 0.05,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
                             color: Color.fromARGB(255, 18, 205, 168),
@@ -133,7 +148,7 @@ class AuthPage extends StatelessWidget {
                             child: Text(
                               "Log in",
                               style: TextStyle(
-                                fontSize: _screenheight * 0.025,
+                                fontSize: _screenheight * 0.02,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
                               ),
