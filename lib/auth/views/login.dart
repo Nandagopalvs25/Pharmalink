@@ -45,6 +45,7 @@ class AuthPage extends StatelessWidget {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: _screenheight * 0.03124829,
+                          //fontFamily:
                         ),
                       ),
                       SizedBox(
@@ -114,8 +115,9 @@ class AuthPage extends StatelessWidget {
                         },
                         child: Container(
                           height: _screenheight * 0.07031547,
+                          //width: _screenwidth * 0.02,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.32),
+                            borderRadius: BorderRadius.circular(35),
                             color: Colors.blue,
                           ),
                           child: Center(
@@ -129,7 +131,7 @@ class AuthPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),
