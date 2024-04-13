@@ -110,7 +110,9 @@ class UserSearch extends StatelessWidget {
 
                     return GestureDetector(
                       onTap: () {
-                        Get.to(() => MedicineView());
+                        Get.to(() => MedicineView(
+                              id: ids[index],
+                            ));
                       },
                       child: ListTile(
                         title: Text(meds[index]),
