@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 
 Future<List> fetchAlbum(int med_id) async {
@@ -20,7 +21,7 @@ Future<List> fetchAlbum(int med_id) async {
     // then parse the JSON.
 
     var data = jsonDecode(response.body);
-    print(data[0]['name']);
+    print(data[0]['distance']);
 
     return data;
   } else {
@@ -45,6 +46,7 @@ class Album {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
     data['distance'] = this.distance;
+
     return data;
   }
 }
@@ -80,22 +82,31 @@ class _StoresNearViewState extends State<StoresNearView> {
         appBar: AppBar(
           title: const Text('Fetch Data Example'),
         ),
-        body: Center(
-          child: FutureBuilder<List>(
-            future: futureAlbum,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text(snapshot.data?[0]['name'].toString() ?? "");
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
+        body: FutureBuilder<List>(
+          future: futureAlbum,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Container(
+                  child: ListView.builder(
+                      itemCount: snapshot.data?.length,
+                      itemBuilder: ((context, index) {
+                        final dist = snapshot.data?[index]['distance'];
 
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
-          ),
+                        return ListTile(
+                          title: Text(snapshot.data?[index]['name']),
+                          subtitle: Text("${dist.toString()} km"),
+                        );
+                      })));
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+
+            // By default, show a loading spinner.
+            return const CircularProgressIndicator();
+          },
         ),
       ),
     );
   }
 }
+// Text(snapshot.data?[0]['name'].toString() ?? "")
