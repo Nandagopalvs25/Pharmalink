@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:pharmalinkfend/user/models/medicinemodel.dart';
 
@@ -200,12 +201,15 @@ class MedicineView extends StatelessWidget {
                                 blurRadius: 2)
                           ]),
                       child: Center(
-                        child: Text(
-                          "Buy Now",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                        child: TextButton(
+                          onPressed: () {
+                            Get.to(() => MedicineView(id: id));
+                          },
+                          child: Text("Buy Now",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20)),
                         ),
                       ),
                     ),
