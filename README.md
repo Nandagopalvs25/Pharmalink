@@ -4,13 +4,10 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Codebase of PharmaLink Mobile App.built at GDSC WOWW hackathon 2024.
+fork/clone the repo. Switch to desired branch.
 
-A few resources to get you started if this is your first Flutter project:
+Screen Recording of the App.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/imlAVOnQI8M/0.jpg)](https://www.youtube.com/watch?v=imlAVOnQI8M)
