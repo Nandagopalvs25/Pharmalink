@@ -34,12 +34,12 @@ class PharmHome extends StatelessWidget {
             },
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: "Profile",
+                icon: Icon(Icons.shopping_cart),
+                label: "Inventory",
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.store),
-                label: "Inventory",
+                icon: Icon(Icons.add),
+                label: "Add",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_cart),
