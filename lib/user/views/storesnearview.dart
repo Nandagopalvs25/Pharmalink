@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
@@ -87,9 +87,12 @@ class _StoresNearViewState extends State<StoresNearView> {
                     itemBuilder: ((context, index) {
                       final dist = snapshot.data?[index]['distance'];
 
-                      return ListTile(
-                        title: Text(snapshot.data?[index]['name']),
-                        subtitle: Text("${dist.toString()} km"),
+                      return GestureDetector(
+                        onTap: () {},
+                        child: ListTile(
+                          title: Text(snapshot.data?[index]['name']),
+                          subtitle: Text("${dist.toString()} km"),
+                        ),
                       );
                     })));
           } else if (snapshot.hasError) {
