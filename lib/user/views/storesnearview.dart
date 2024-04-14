@@ -75,7 +75,12 @@ class _StoresNearViewState extends State<StoresNearView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fetch Data Example'),
+        title: const Text(
+          'Available in',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: FutureBuilder<List>(
         future: futureAlbum,
@@ -87,10 +92,13 @@ class _StoresNearViewState extends State<StoresNearView> {
                     itemBuilder: ((context, index) {
                       final dist = snapshot.data?[index]['distance'];
 
-                      return GestureDetector(
-                        onTap: () {},
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 29.0),
                         child: ListTile(
-                          title: Text(snapshot.data?[index]['name']),
+                          title: Text(
+                            snapshot.data?[index]['name'],
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           subtitle: Text("${dist.toString()} km"),
                         ),
                       );
@@ -100,7 +108,7 @@ class _StoresNearViewState extends State<StoresNearView> {
           }
 
           // By default, show a loading spinner.
-          return const CircularProgressIndicator();
+          return Center(child: const CircularProgressIndicator());
         },
       ),
     );

@@ -31,20 +31,20 @@ class CommunityUser extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: EdgeInsets.all(_screenheight * 0.02),
               child: Center(
                 child: Container(
                   width: _screenheight * 0.4,
                   height: _screenheight * 0.18,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(_screenheight * 0.02),
                       border: Border.all(
                           width: 1, color: Color.fromARGB(255, 16, 158, 113))),
-                  child: Column(
+                  child: ListView(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(_screenheight * 0.017),
                         child: Text(
                           "Government alerts on Meftal; all about adverse reaction the painkiller can cause",
                           style: TextStyle(
@@ -53,7 +53,7 @@ class CommunityUser extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(_screenheight * 0.017),
                         child: Text(
                           "Government has issued alert about an adverse reaction of Meftal. The syndrome causes a diverse array of symptoms, from 2 to 8 weeks after...",
                           style: TextStyle(
@@ -67,20 +67,21 @@ class CommunityUser extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: EdgeInsets.all(_screenheight * 0.017),
               child: Center(
                 child: Container(
                   width: _screenheight * 0.4,
                   height: _screenheight * 0.18,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius:
+                          BorderRadius.circular(_screenheight * 0.017),
                       border: Border.all(
                           width: 1, color: Color.fromARGB(255, 16, 158, 113))),
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(_screenheight * 0.012),
                         child: Text(
                           "Government bans 14 combination drugs used to treat common ailments",
                           style: TextStyle(
@@ -89,7 +90,7 @@ class CommunityUser extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(_screenheight * 0.013),
                         child: Text(
                           "Fourteen fixed-dose combinations (FDC) medicines found to lack therapeutic relevance have been banned by the Central Government through a...",
                           style: TextStyle(
@@ -103,20 +104,21 @@ class CommunityUser extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: EdgeInsets.all(_screenheight * 0.012),
               child: Center(
                 child: Container(
                   width: _screenheight * 0.4,
                   height: _screenheight * 0.18,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius:
+                          BorderRadius.circular(_screenheight * 0.013),
                       border: Border.all(
                           width: 1, color: Color.fromARGB(255, 16, 158, 113))),
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(_screenheight * 0.017),
                         child: Text(
                           "P&G stops selling Vicks Action 500 Extra in India after ban",
                           style: TextStyle(
@@ -125,7 +127,7 @@ class CommunityUser extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(_screenheight * 0.012),
                         child: Text(
                           "US consumer health giant Procter & Gamble's (PG.N) India unit said on Tuesday it had stopped manufacture and sale of its cough-and-cold...",
                           style: TextStyle(

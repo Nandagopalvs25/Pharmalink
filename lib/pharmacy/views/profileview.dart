@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 
-Future<List> fetchinv() async {
+Future<Map<String, dynamic>> fetchinv() async {
   final response = await http.get(
     Uri.parse('https://pharmalink-47enl.ondigitalocean.app/inventory/'),
     headers: <String, String>{
@@ -18,32 +18,12 @@ Future<List> fetchinv() async {
     // then parse the JSON.
 
     var data = jsonDecode(response.body);
-    print(data);
+    print(data['medicines']);
     return data;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
     throw Exception('Failed to load album');
-  }
-}
-
-class Album {
-  String? name;
-  double? distance;
-
-  Album({this.name, this.distance});
-
-  Album.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    distance = json['distance'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['distance'] = this.distance;
-
-    return data;
   }
 }
 
@@ -57,7 +37,7 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
-  late Future<List<dynamic>> futureAlbum;
+  late Future<Map<String, dynamic>> futureAlbum;
 
   @override
   void initState() {
@@ -68,22 +48,22 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Fetch Data Example'),
-      ),
-      body: FutureBuilder<List>(
+      body: FutureBuilder<Map<String, dynamic>>(
         future: futureAlbum,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Container(
                 child: ListView.builder(
-                    itemCount: snapshot.data?.length,
+                    itemCount: snapshot.data?['medicines'].length,
                     itemBuilder: ((context, index) {
-                      final dist = snapshot.data?[index]['distance'];
+                      final dist = snapshot.data?['medicines'][index]['mrp'];
 
                       return ListTile(
-                        title: Text(snapshot.data?[index]['name']),
-                        subtitle: Text("${dist.toString()} km"),
+                        title: Text(
+                          snapshot.data?['medicines'][index]['name'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text("₹${dist.toString()}"),
                       );
                     })));
           } else if (snapshot.hasError) {
