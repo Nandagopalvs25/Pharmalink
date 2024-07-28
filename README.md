@@ -1,10 +1,10 @@
-# pharmalinkfend
+# Pharmalink Frontend
 
-A new Flutter project.
+Frontend for the pharmalink project made using Flutter
 
 ## Getting Started
 
-Codebase of PharmaLink Mobile App.built at GDSC WOWW hackathon 2024.
+Codebase of PharmaLink Mobile App. Built at GDSC WOW hackathon 2024.
 fork/clone the repo. Switch to desired branch.
 
 Screen Recording of the App.
