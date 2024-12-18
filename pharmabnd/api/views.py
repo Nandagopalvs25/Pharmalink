@@ -68,7 +68,7 @@ class AvailabilityView(APIView):
         for i in invs:
             print(i.user.username)
        
-        key='XdkvzAxANCyTYDfEmM1Zxz5vWOpQ8LpC5JRPQzI824gMrrrTJYyxzo2ALHPIpnr3'
+        key='key'
         origin = '8.470367668729352, 76.97932663642356'
 
          
